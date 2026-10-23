@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regyn Gesulga | Portfolio</title>
+<meta name="description" content="Portfolio of Regyn Gesulga, a 2nd year Computer Science student who designs and creates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Theme Variables & Base ===== */
+:root {
+  --bg: #FFF0F5;
+  --pink: #FF4D94;
+  --bub: #FFB6D5;
+  --rasp: #C2185B;
+  --ink: #1A0A12;
+  --yel: #FFE066;
+  --lav: #D9B8FF;
+  --card: #FAF8F0;
+  --k: .7;
+}
+
+@media(min-width: 720px) {
+  :root { --k: 1; }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font: 1rem/1.7 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(#FFD0E4 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  letter-spacing: -.03em;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+section, footer {
+  position: relative;
+}
+
+section {
+  padding-block: clamp(40px, 7vw, 88px);
+}
+
+:focus-visible {
+  outline: 3px solid var(--rasp);
+  outline-offset: 3px;
+}
+
+/* ===== Navigation Bar ===== */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px clamp(16px, 4vw, 48px);
+  background: rgba(255, 240, 245, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--ink);
+}
+
+.logo {
+  font: 800 1.4rem 'Bricolage Grotesque', sans-serif;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -.04em;
+}
+
+.logo span {
+  color: var(--pink);
+}
+
+.burger {
+  font-size: 1.5rem;
+  background: none;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 0 10px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+#menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding: 16px;
+  background: var(--bg);
+  border-bottom: 2px solid var(--ink);
+}
+
+.open #menu {
+  display: flex;
+}
+
+#menu a {
+  display: block;
+  padding: 6px 16px;
+  border-radius: 99px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: .95rem;
+  text-decoration: none;
+}
+
+#menu a:hover, #menu a[aria-current] {
+  background: var(--bub);
+}
+
+@media(min-width: 720px) {
+  .burger { display: none; }
+  #menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--pink);
+  color: var(--ink);
+  font: 700 .9rem 'DM Sans', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: var(--rasp);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn.alt {
+  background: var(--card);
+  border: 2px solid var(--ink);
+}
+
+.btn.alt:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: grid;
+  gap: 48px;
+  align-items: start;
+  padding-top: 120px;
+}
+
+@media(min-width: 800px) {
+  .hero { grid-template-columns: 1fr auto; }
+}
+
+.role {
+  display: inline-block;
+  background: var(--yel);
+  border: 2px solid var(--ink);
+  padding: 4px 16px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: .9rem;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 12vw, 8.5rem);
+  font-weight: 800;
+  line-height: .95;
+}
+
+.hero h1 span {
+  display: block;
+  animation: rise .9s both;
+}
+
+.hero h1 .c2 {
+  color: var(--rasp);
+  animation-delay: .15s;
+}
+
+.frame {
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 16px 16px 0 var(--pink);
+  overflow: hidden;
+  background: var(--bub);
+  width: min(100%, 400px);
+  aspect-ratio: 3/3.4;
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== About Section ===== */
+#about h2 {
+  margin-bottom: 20px;
+}
+
+#about p {
+  max-width: 68ch;
+  margin-bottom: 10px;
+}
+
+/* ===== Tools Section Layout ===== */
+.tools-container {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+@media(min-width: 768px) {
+  .tools-container {
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+.tools-container h2 {
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.tools-content p {
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.tools-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tools-tags li {
+  display: inline-block;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 20px;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+/* ===== Selected Work Section ===== */
+#work h2 {
+  margin-bottom: 32px;
+}
+
+.cards {
+  display: grid;
+  gap: 28px;
+}
+
+@media(min-width: 800px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--ink);
+  overflow: hidden;
+  transition: .3s;
+  padding: 16px;
+}
+
+.js .card.in:hover {
+  transform: translateY(-6px);
+  box-shadow: 10px 10px 0 var(--pink);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid var(--ink);
+  margin-bottom: 14px;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s;
+}
+
+.card:hover .media img {
+  transform: scale(1.06);
+}
+
+.soon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: var(--yel);
+  border: 2px solid var(--ink);
+  border-radius: 99px;
+  padding: 2px 12px;
+  font-weight: 700;
+  font-size: .8rem;
+}
+
+.cat {
+  font-weight: 700;
+  font-size: .8rem;
+  color: var(--rasp);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.card h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  margin: 4px 0;
+}
+
+.card p {
+  font-size: .92rem;
+  margin-bottom: 10px;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px;
+}
+
+.card .tags li {
+  background: var(--lav);
+  border: 1px solid var(--ink);
+  border-radius: 99px;
+  font-size: .8rem;
+  font-weight: 700;
+  padding: 2px 10px;
+}
+
+.card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* ===== Quote Section (Unboxed Figma Match) ===== */
+.quote .quote-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 48ch;
+}
+
+.quote .quote-icon {
+  flex-shrink: 0;
+  color: var(--ink);
+  opacity: .9;
+  transform: translateY(2px);
+}
+
+.quote p {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -.03em;
+  color: var(--ink);
+}
+
+/* ===== Contact / Connect Section (Figma Match) ===== */
+.connect-box {
+  position: relative;
+  background: var(--pink);
+  border: 3px solid var(--ink);
+  border-radius: 28px;
+  padding: clamp(36px, 6vw, 64px);
+  box-shadow: 12px 12px 0 var(--ink);
+  color: var(--ink);
+}
+
+.connect-box h2 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  margin-bottom: 24px;
+}
+
+.connect-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.connect-email {
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.connect-box .btn.alt {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.connect-box .btn.alt:hover {
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.connect-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer {
+  padding: 28px 0 40px;
+  border-top: 2px solid var(--ink);
+  background: var(--bg);
+}
+
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+/* ===== Interactive Stickers & Animations ===== */
+.sticker {
+  position: absolute;
+  z-index: 5;
+  width: calc(var(--w, 80px) * var(--k));
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transform: translate(var(--dx, 0px), calc(var(--dy, 0px) + var(--py, 0px)));
+}
+
+.sticker svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 6px 6px rgba(43, 10, 30, .28));
+  transform: rotate(var(--r, 0deg));
+  animation: float 4s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+.sticker:hover svg {
+  animation: wiggle .5s;
+}
+
+.sticker.pop svg {
+  animation: pop .6s;
+}
+
+.sticker.drag {
+  cursor: grabbing;
+  z-index: 30;
+}
+
+.no-stickers .sticker {
+  display: none;
+}
+
+.spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 14s linear infinite;
+}
+
+.sbtn {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 60;
+  padding: 8px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 99px;
+  background: var(--yel);
+  font: 700 .9rem 'DM Sans', sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99;
+  color: var(--pink);
+  font-size: 16px;
+  font-style: normal;
+  animation: fade .8s forwards;
+}
+
+/* ===== Motion Keyframes & Reveal ===== */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .8s, transform .8s;
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(60%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: rotate(var(--r)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--r) + 4deg)); }
+}
+
+@keyframes wiggle {
+  25% { transform: scale(1.1) rotate(calc(var(--r) - 10deg)); }
+  75% { transform: scale(1.1) rotate(calc(var(--r) + 10deg)); }
+}
+
+@keyframes pop {
+  0% { transform: rotate(var(--r)); }
+  50% { transform: scale(1.25) rotate(calc(var(--r) + 180deg)); }
+  100% { transform: rotate(calc(var(--r) + 360deg)); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade {
+  to { opacity: 0; transform: translateY(20px) scale(.4); }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+<script>document.documentElement.className = 'js';</script>
+</head>
+<body id="top">
+
+<header class="nav">
+  <a class="logo" href="#top">Regyn<span>.</span></a>
+  <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">☰</button>
+  <nav aria-label="Main">
+    <ul id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#connect">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- Hero Section -->
+  <section class="hero wrap">
+    <span class="sticker" data-s="star" style="top:105px; left:44%; --w:90px; --r:-12deg"></span>
+    <span class="sticker" data-s="hi" style="top:140px; right:2%; --w:100px; --r:10deg"></span>
+    <span class="sticker" data-s="badge" style="bottom:-20px; left:2%; --w:120px; --r:-6deg"></span>
+    <span class="sticker" data-s="sparkle" style="bottom:20px; right:6%; --w:70px; --r:14deg"></span>
+    <div>
+      <p class="role">A 2nd Year Computer Science Student</p>
+      <h1><span>Regyn</span><span class="c2">Gesulga</span></h1>
+    </div>
+    <div class="frame">
+      <img src="mee.jpg" alt="Regyn Gesulga portrait" width="480" height="600">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="wrap reveal">
+    <span class="sticker" data-s="heart" style="top:30px; right:10%; --w:80px; --r:-8deg"></span>
+    <h2>I like to design and create stuff.</h2>
+    <p>I am a 2nd year computer science student from Bontoc, Southern Leyte. I love pretty and cute things.</p>
+    <p>I love learning new things, especially editing pretty pictures, taking pictures, and playing online games.</p>
+    <p>My favorite drink is matcha and my favorite color is any shade of green.</p>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="skills" class="wrap reveal">
+    <span class="sticker" data-s="sparkle" style="top:20px; left:8%; --w:80px; --r:10deg"></span>
+    <div class="tools-container">
+      <h2>Tools</h2>
+      <div class="tools-content">
+        <p>Here are the software, apps, and languages I use to build and create my projects:</p>
+        <ul class="tools-tags">
+          <li style="background-color: #FFB6D5;">Canva</li>
+          <li style="background-color: #D9B8FF;">CapCut</li>
+          <li style="background-color: #FFE066;">Pinterest</li>
+          <li style="background-color: #B4FF9F;">HTML / CSS</li>
+          <li style="background-color: #9FFFCB;">JavaScript</li>
+          <li style="background-color: #AE9FFF;">Figma</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Work Section -->
+  <section id="work" class="wrap">
+    <h2 class="reveal">Selected work</h2>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="sticker" data-s="bolt" style="top:-34px; left:-14px; --w:70px; --r:-14deg"></span>
+        <div class="media">
+          <img src="moodboard.jpg" alt="Moodboard Series project" loading="lazy" width="640" height="480">
+        </div>
+        <div>
+          <p class="cat">Visual design</p>
+          <h3>Moodboard Series</h3>
+          <p>Pinterest-inspired posters and social graphics, made in Canva.</p>
+          <ul class="tags">
+            <li>Canva</li>
+            <li>Posters</li>
+            <li>Moodboards</li>
+          </ul>
+          <a class="btn" href="#">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="media">
+          <img src="capcut.jpg" alt="CapCut Edits project" loading="lazy" width="640" height="480">
+        </div>
+        <div>
+          <p class="cat">Video editing</p>
+          <h3>CapCut Edits</h3>
+          <p>Short, snappy edits with smooth transitions and fun effects.</p>
+          <ul class="tags">
+            <li>CapCut</li>
+            <li>Reels</li>
+            <li>Motion</li>
+          </ul>
+          <a class="btn" href="#">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <span class="soon">Coming Soon</span>
+        <span class="sticker" data-s="new" style="bottom:-30px; right:-10px; --w:90px; --r:9deg"></span>
+        <div class="media">
+          <img src="matcha.jpg" alt="Matcha Cafe Brand project" loading="lazy" width="640" height="480">
+        </div>
+        <div>
+          <p class="cat">Branding</p>
+          <h3>Matcha Cafe Brand</h3>
+          <p>A cozy green-tea cafe identity, from logo to cup sleeve.</p>
+          <ul class="tags">
+            <li>Branding</li>
+            <li>Logo</li>
+            <li>Packaging</li>
+          </ul>
+          <a class="btn" href="#">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Quote Section (Unboxed Figma Match) -->
+  <section class="quote wrap reveal">
+    <span class="sticker" data-s="sparkle" style="top:40px; right:6%; --w:90px; --r:10deg"></span>
+    <div class="quote-content">
+      <svg class="quote-icon" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.996v10h-9.996z"/>
+      </svg>
+      <p>Regyn turns simple ideas into designs that feel fun and polished.</p>
+    </div>
+  </section>
+
+  <!-- Contact / Connect Section -->
+  <section id="connect" class="wrap">
+    <div class="connect-box reveal">
+      <h2>Let's connect!</h2>
+      <div class="connect-content">
+        <a class="connect-email" href="mailto:regyngesulga22@gmail.com">regyngesulga22@gmail.com</a>
+        <button class="btn alt" id="copy" data-email="regyngesulga22@gmail.com" aria-live="polite">Copy Email</button>
+      </div>
+      <div class="connect-socials">
+        <a class="btn alt" href="https://instagram.com/nitrogyn" target="_blank" rel="noopener">Instagram @nitrogyn <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a class="btn alt" href="https://facebook.com/" target="_blank" rel="noopener">Facebook: Regyn Gesulga <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a class="btn alt" href="https://x.com/rchivee_" target="_blank" rel="noopener">X @rchivee_ <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="sticker" data-s="flower" style="top:-40px; left:6%; --w:80px; --r:12deg"></span>
+  <span class="sticker" data-s="smile" style="top:-30px; right:8%; --w:70px; --r:-10deg"></span>
+  <div class="wrap">
+    <p>© Regyn Gesulga. Made with HTML, CSS, and JavaScript.</p>
+    <a class="btn alt" href="#top">↑ Back to top</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (s, c = document) => [...c.querySelectorAll(s)];
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const bub = (t, c, f = 24) => 
+    `<path d="M10 14h80a6 6 0 016 6v44a6 6 0 01-6 6H44L24 92V70H10a6 6 0 01-6-6V20a6 6 0 016-6z" fill="${c}"/>
+     <text x="50" y="43" text-anchor="middle" dominant-baseline="middle" font-size="${f}" font-weight="800" font-family="sans-serif" fill="#2B0A1E" stroke="none">${t}</text>`;
+
+  const ART = {
+    star: '<path d="M50 6l13 28 31 4-23 21 6 31-27-16-27 16 6-31L6 38l31-4z" fill="#FFE066"/>',
+    heart: '<path d="M50 88C10 58 6 30 28 20c12-5 20 2 22 10 2-8 10-15 22-10 22 10 18 38-22 68z" fill="#FF4D94"/>',
+    sparkle: '<path d="M50 4c4 26 20 42 46 46-26 4-42 20-46 46-4-26-20-42-46-46C30 46 46 30 50 4z" fill="#D9B8FF"/>',
+    smile: '<circle cx="50" cy="50" r="42" fill="#FFE066"/><circle cx="36" cy="42" r="5" fill="#2B0A1E" stroke="none"/><circle cx="64" cy="42" r="5" fill="#2B0A1E" stroke="none"/><path d="M30 60q20 22 40 0" stroke="#2B0A1E" stroke-width="5" fill="none" stroke-linecap="round"/>',
+    flower: '<g fill="#FFB6D5"><circle cx="50" cy="24" r="20"/><circle cx="75" cy="42" r="20"/><circle cx="66" cy="72" r="20"/><circle cx="34" cy="72" r="20"/><circle cx="25" cy="42" r="20"/></g><circle cx="50" cy="52" r="14" fill="#FFE066"/>',
+    bolt: '<path d="M58 4L16 56h28l-8 40 48-58H52z" fill="#FFE066"/>',
+    hi: bub('hi!', '#fff', 28),
+    hire: bub('hire me', '#FFB6D5', 17),
+    new: bub('new!', '#FFE066', 26),
+    badge: '<circle cx="50" cy="50" r="46" fill="#FF4D94"/><g class="spin" stroke="none"><path id="ring" d="M50 50m-33 0a33 33 0 1 1 66 0a33 33 0 1 1-66 0" fill="none"/><text font-size="10" font-weight="700" font-family="sans-serif" fill="#2B0A1E"><textPath href="#ring" textLength="200" lengthAdjust="spacing">AVAILABLE FOR WORK ✦ HIRE ME ✦</textPath></text></g><text x="50" y="52" text-anchor="middle" dominant-baseline="middle" font-size="26" fill="#fff" stroke="none">♥</text>'
+  };
+
+  const stickers = $('.sticker');
+  stickers.forEach((el, i) => {
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = `<svg viewBox="0 0 100 100" stroke="#fff" stroke-width="7" stroke-linejoin="round" paint-order="stroke">${ART[el.dataset.s]}</svg>`;
+    el.style.setProperty('--d', (i % 4) * -1 + 's');
+    enableDrag(el);
+  });
+
+  function pop(el) {
+    el.classList.remove('pop');
+    void el.offsetWidth;
+    el.classList.add('pop');
+    setTimeout(() => el.classList.remove('pop'), 600);
+  }
+
+  function enableDrag(el) {
+    el.addEventListener('pointerdown', e => {
+      el.setPointerCapture(e.pointerId);
+      const sx = e.clientX, sy = e.clientY, ox = +el.dataset.x || 0, oy = +el.dataset.y || 0;
+      let moved = false;
+      el.classList.add('drag');
+
+      const mv = ev => {
+        const dx = ev.clientX - sx, dy = ev.clientY - sy;
+        if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+        el.dataset.x = ox + dx;
+        el.dataset.y = oy + dy;
+        el.style.setProperty('--dx', (ox + dx) + 'px');
+        el.style.setProperty('--dy', (oy + dy) + 'px');
+      };
+
+      const up = () => {
+        el.classList.remove('drag');
+        el.removeEventListener('pointermove', mv);
+        el.removeEventListener('pointerup', up);
+        el.removeEventListener('pointercancel', up);
+        if (!moved) pop(el);
+      };
+
+      el.addEventListener('pointermove', mv);
+      el.addEventListener('pointerup', up);
+      el.addEventListener('pointercancel', up);
+    });
+  }
+
+  if (!rm && stickers.length) {
+    let tick = false;
+    const run = () => {
+      stickers.forEach((el, i) => {
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        const k = ((i % 5) - 2) * 0.025;
+        const py = Math.max(-40, Math.min(40, (innerHeight / 2 - (r.top + r.height / 2)) * k));
+        el.style.setProperty('--py', py + 'px');
+      });
+      tick = false;
+    };
+    addEventListener('scroll', () => {
+      if (!tick) {
+        tick = true;
+        requestAnimationFrame(run);
+      }
+    }, { passive: true });
+    run();
+  }
+
+  if (stickers.length) {
+    const b = document.createElement('button');
+    b.className = 'sbtn';
+    b.setAttribute('aria-pressed', 'true');
+    b.textContent = '✨ Stickers: on';
+    b.onclick = () => {
+      const off = document.body.classList.toggle('no-stickers');
+      b.setAttribute('aria-pressed', String(!off));
+      b.textContent = '✨ Stickers: ' + (off ? 'off' : 'on');
+    };
+    document.body.append(b);
+  }
+
+  const nav = $('.nav')[0], burger = $('.burger')[0];
+  burger.onclick = () => {
+    const o = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', o);
+    burger.textContent = o ? '✕' : '☰';
+  };
+  $('#menu a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    burger.textContent = '☰';
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) {
+      $('#menu a').forEach(a => a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id));
+    }
+  }), { rootMargin: '-45% 0px -45% 0px' });
+  $('#about, #skills, #work, #connect').forEach(x => io.observe(x));
+
+  const rio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      rio.unobserve(e.target);
+    }
+  }), { threshold: .15 });
+  $('.reveal').forEach(el => rio.observe(el));
+
+  const cb = $('#copy')[0];
+  if (cb) {
+    cb.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(cb.dataset.email);
+      } catch {
+        const t = document.createElement('textarea');
+        t.value = cb.dataset.email;
+        document.body.append(t);
+        t.select();
+        document.execCommand('copy');
+        t.remove();
+      }
+      cb.textContent = 'Copied! ✓';
+      setTimeout(() => cb.textContent = 'Copy Email', 2000);
+    });
+  }
+
+  if (matchMedia('(pointer:fine)').matches && !rm) {
+    let last = 0;
+    addEventListener('pointermove', e => {
+      const n = Date.now();
+      if (n - last < 70) return;
+      last = n;
+      const h = document.createElement('i');
+      h.className = 'trail';
+      h.textContent = '♥';
+      h.style.left = e.clientX + 'px';
+      h.style.top = e.clientY + 'px';
+      document.body.append(h);
+      setTimeout(() => h.remove(), 800);
+    });
+  }
+})();
+</script>
+</body>
+</html>
